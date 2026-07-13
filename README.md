@@ -1,7 +1,33 @@
 ## Overview
 
-The Rugby Club Management System is a web-based application developed to streamline and digitalize the management processes of a rugby club.
+<table>
+<tr>
+<td align="center">
 
-The system provides a centralized platform for managing club operations such as player records, team information, training activities, match schedules, and administrative tasks. It aims to reduce manual record keeping, improve data organization, and provide easier access to important club information.
+### Rugby Club Management System
 
-This project is developed using the Laravel framework with a focus on creating an efficient, user-friendly, and scalable management system to support rugby club administration.
+A centralized platform designed to manage rugby club operations efficiently.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+<br>
+
+| Player Management | Team Management | Match Management |
+|:---:|:---:|:---:|
+| Maintain player profiles and information | Organize teams and player positions | Manage fixtures and match records |
+
+| Training Management | Administration | Reporting |
+|:---:|:---:|:---:|
+| Track training activities and attendance | Manage club operations | Generate useful information from stored data |
+
+<br>
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
