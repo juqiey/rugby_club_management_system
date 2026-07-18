@@ -1,6 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AppsController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\EcommerceController;
+use App\Http\Controllers\HRController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\SocialController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PagesController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -116,6 +130,19 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
                 Route::get('payslip', 'payslip')->name('hr/payroll/payslip');
                 Route::get('create-payslip', 'createPayslip')->name('hr/payroll/create-payslip');
             });
+        });
+    });
+
+    // ---------------------- Players ----------------------//
+    Route::middleware('auth')->prefix('players')->group(function () {
+        Route::controller(PlayerController::class)->group(function () {
+            Route::get('/', 'index')->name('players.index');
+            Route::get('/create', 'create')->name('players.create');
+            Route::post('/', 'store')->name('players.store');
+            Route::get('/{player}', 'show')->name('players.show');
+            Route::get('/{player}/edit', 'edit')->name('players.edit');
+            Route::put('/{player}', 'update')->name('players.update');
+            Route::delete('/{player}', 'destroy')->name('players.destroy');
         });
     });
 
