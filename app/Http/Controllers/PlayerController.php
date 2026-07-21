@@ -22,7 +22,12 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        $positions = Position::all();
+        $positions = Position::orderBy('id')
+                    ->get()
+                    ->groupBy([
+                        'format',
+                        'position_group'
+                    ]);
 
         return view('players.create', compact('positions'));
     }

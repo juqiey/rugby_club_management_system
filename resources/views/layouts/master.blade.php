@@ -14,6 +14,12 @@
     <!-- StarCode CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/starcode2.css') }}">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/player_form.css') }}">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
     <script src="{{ asset('assets/libs/%40popperjs/core/umd/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/common.js') }}"></script>
     
@@ -531,5 +537,30 @@
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
     @yield('script')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize DataTables
+            $('.datatable').DataTable({
+                pageLength: 10,
+                lengthChange: true,
+                ordering: true,
+                searching: true,
+                language: {
+                    search: "Search:",
+                    lengthMenu: "Show _MENU_ entries per page",
+                    zeroRecords: "No matching records found",
+                    info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                    infoFiltered: "(filtered from _MAX_ total records)"
+                }
+            });
+
+            // Scrollbar for Windows
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+                Scrollbar.init(document.querySelector('#sidenav-scrollbar'), { damping: 0.5 });
+            }
+        });
+    </script>
 </body>
 </html>

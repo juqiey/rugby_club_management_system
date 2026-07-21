@@ -11,4 +11,8 @@ class Position extends Model
       'position_group',
       'format'
     ];
+
+    public function playerPosition(){
+      return $this->hasMany(PlayerPosition::class);
+    }
 }
